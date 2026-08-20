@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard_container">
+        <aside>
+            <div class="aside_header">
+                <div class="profile_logo">Ema4kids</div>
+                <div class="profile_side_img">
+                    <img src="./images/WhatsApp Image 2026-04-08 at 15.43.47 (1).jpeg" alt="Profile Image">
+                </div>
+            </div>
+            <div class="aside_links">
+                <a href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a>
+                <a href="dashboard.html" class="active"><ion-icon name="grid-outline"></ion-icon> Dashboard Overview</a>
+                <a href="requests.html"><ion-icon name="document-text-outline"></ion-icon> Requests</a>
+                <a href="blog_overview.html"><ion-icon name="newspaper-outline"></ion-icon> Blog</a>
+                <a href="admins.html"><ion-icon name="people-outline"></ion-icon> Admins</a>
+                <a href="sr.html"><ion-icon name="people-circle-outline"></ion-icon> Scholarship Recipients</a>
+                <a href="security.html"><ion-icon name="bug-outline"></ion-icon> Security Alerts</a>
+                <a href="activity.html"><ion-icon name="finger-print-outline"></ion-icon> Activity Log</a>
+                <a href="profile.html"><ion-icon name="person-outline"></ion-icon> Profile</a>
+                <a href="logout.html"><ion-icon name="log-out-outline"></ion-icon> Logout</a>
+            </div>
+        </aside>
+        <main>
+            <div class="main_navigator">
+                <div class="apps" id="openDash" onclick="show_dash()"><ion-icon name="apps-outline"></ion-icon></div>
+                <div class="apps" id="closeDash" onclick="hide_dash()"><ion-icon name="close-outline"></ion-icon></div>
+            </div>
+            <div class="greet">Welcome back, Jane Doe &#128075;</div>
+            <div class="overview">
+                <div class="overview_card">
+                    <h3>New Requests</h3>
+                    <div class="overview_details">
+                        <span class="overview_count">12</span>
+                        <p>Requests</p>
+                    </div>
+                </div>
+                <div class="overview_card">
+                    <h3>Pending Requests</h3>
+                    <div class="overview_details">
+                        <span class="overview_count">12</span>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                <div class="overview_card">
+                    <h3>Blog activities</h3>
+                    <div class="overview_details">
+                        <span class="overview_count">12</span>
+                        <p>Activities</p>
+                    </div>
+                </div>
+                <div class="overview_card">
+                    <h3>New threats</h3>
+                    <div class="overview_details">
+                        <span class="overview_count">12</span>
+                        <p>Threats</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Your recent activities</h2>
+            <table>
+                <tr>
+                    <th>demo</th>
+                    <th>demo</th>
+                    <th>demo</th>
+                    <th>demo</th>
+                </tr>
+                <tr>
+                    <td>demo</td>
+                    <td>demo</td>
+                    <td>demo</td>
+                    <td>demo</td>
+                </tr>
+            </table>
+        </main>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
