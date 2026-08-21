@@ -33,10 +33,10 @@
         padding: 20px;
     }
     .header {
-        background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 50%, #5DCAA5 100%);
-        box-shadow:5px 5px 10px rgba(0,0,0,0.2);
-        padding: 1.3rem; 
-        margin-bottom: 0.7rem;
+        background: #E1F5EE;
+        box-shadow:5px 5px 10px rgba(0,0,0,0.1);
+        padding: 1rem; 
+        /* margin-bottom: 0.7rem; */
         display: flex; 
         align-items: center; 
         justify-content: space-between;
@@ -48,19 +48,21 @@
     }
     .header .logo {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5rem; font-weight: 700;
-        color: #ffffff; letter-spacing: 1px;
+        font-size: 1.5rem; 
+        font-weight: 700;
+        color: #3d3939; 
+        letter-spacing: 1px;
     }
     .header .nav a {
         font-size: 18px; 
         font-weight: 500;
-        color: #ffffff; 
+        color: #3d3939; 
         text-decoration: none;
         margin-left: 1.5rem; 
         transition: color 0.2s;
     }
     .header .nav a:hover { 
-        color: #E1F5EE; 
+        color: #535756; 
     }
     .header #side {
         display: none;
@@ -1094,7 +1096,7 @@
         width: 100%;
         border-radius: 10px;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1); */
         background-color: transparent;
     }
     .dashboard_container main table tr {
