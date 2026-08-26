@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarship Alumni — Ema4Kids Legacy Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #10299D;
+      --navy-light: #E8ECFA;
+      --green: #0F6E56;
+      --green-mid: #1D9E75;
+      --green-light: #5DCAA5;
+      --green-pale: #E1F5EE;
+      --text: #1a1a18;
+      --muted: #5a5a58;
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --surface: #f1efeb;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      margin: 0 auto;
+      padding: 0 0 4rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 60%, #5DCAA5 100%);
+      padding: 2.75rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -50px; right: -50px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: #ffffff; line-height: 1.2; margin-bottom: 0.75rem;
+    }
+    .hero-sub {
+      font-size: 14px; color: rgba(255,255,255,0.82);
+      font-weight: 300; line-height: 1.7; max-width: 580px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--text); margin-bottom: 1.5rem; line-height: 1.25;
+    }
+
+    /* ── TEMPLATE NOTE ── */
+    .template-note {
+      background: var(--navy-light);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 10px 10px 0;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 2rem;
+      font-size: 13px; color: #0a1a6e; line-height: 1.6;
+    }
+    .template-note strong { font-weight: 500; }
+
+    /* ── PLACEHOLDER STATE ── */
+    .placeholder-section {
+      background: var(--surface);
+      border: 2px dashed rgba(15,110,86,0.25);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .placeholder-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+    .placeholder-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .placeholder-text {
+      font-size: 13.5px; color: var(--muted);
+      line-height: 1.7; max-width: 480px; margin: 0 auto 1.25rem;
+    }
+    .placeholder-note {
+      display: inline-block;
+      background: var(--green-pale); color: var(--green);
+      font-size: 11px; font-weight: 500;
+      padding: 6px 16px; border-radius: 20px;
+    }
+
+    /* ── ALUMNI GRID ── */
+    .alumni-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .alumni-card {
+      background: var(--card);
+      border: 0.5px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .alumni-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(15,110,86,0.1);
+    }
+    .alumni-card.sample { opacity: 0.5; pointer-events: none; }
+
+    .alumni-photo {
+      width: 100%; aspect-ratio: 1 / 1;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .alumni-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .alumni-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700;
+      color: var(--green); opacity: 0.35;
+    }
+
+    .alumni-year-badge {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--green); color: white;
+      font-size: 10px; font-weight: 500;
+      padding: 3px 9px; border-radius: 20px; letter-spacing: 0.5px;
+    }
+
+    .alumni-info { padding: 0.9rem 1rem 1.1rem; }
+    .alumni-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--text); margin-bottom: 3px;
+    }
+    .alumni-degree {
+      font-size: 11.5px; color: var(--muted);
+      margin-bottom: 8px; line-height: 1.4;
+    }
+    .alumni-now-label {
+      font-size: 10px; color: var(--muted);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;
+    }
+    .alumni-now {
+      font-size: 11.5px; color: var(--green);
+      font-weight: 500; line-height: 1.4;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-text { color: white; }
+    .cta-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 0.35rem;
+    }
+    .cta-text p {
+      font-size: 13.5px; color: rgba(255,255,255,0.8);
+      font-weight: 300; line-height: 1.6; max-width: 420px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #ffffff; color: var(--navy);
+      font-size: 13px; font-weight: 500;
+      padding: 0.75rem 1.75rem; border-radius: 8px;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.9; }
+
+    @media (max-width: 700px) {
+      .alumni-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">Scholarship Alumni</div>
+    <div class="hero-title">Former Scholarship Recipients</div>
+    <div class="hero-sub">
+        Our alumni are living proof that investment in youth changes communities. They have gone on to become positive leaders
+        of change, agents of peace, and exemplars of excellence exactly as they pledged.
+    </div>
+  </div>
+
+  <div class="template-note">
+    <strong>For the Ema4Kids team:</strong> This page is ready to populate with alumni profiles. Each card includes a photo, name, degree earned, graduation year, and a "Now" field showing what the alumnus is doing today — their career, community role, or further studies.
+  </div>
+
+  <div class="section-label">Our Alumni</div>
+  <div class="section-title">Where are they now?</div>
+
+  <!-- PLACEHOLDER — replace with real profiles when ready -->
+  <div class="placeholder-section">
+    <div class="placeholder-icon">🎓</div>
+    <div class="placeholder-title">Alumni profiles coming soon</div>
+    <div class="placeholder-text">
+      This page is ready to showcase the journeys of Ema4Kids graduates. Share alumni names, photos, degrees, graduation years, and current roles with your team to bring this page to life.
+    </div>
+    <span class="placeholder-note">Add alumni profiles to populate this section</span>
+  </div>
+
+  <!-- SAMPLE LAYOUT — grayed out to show card structure -->
+  <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;">Sample card layout — how profiles will appear once added:</p>
+
+  <div class="alumni-grid">
+
+    <div class="alumni-card sample">
+      <div class="alumni-year-badge">Class of 2024</div>
+      <div class="alumni-photo"><div class="alumni-initials">AA</div></div>
+      <div class="alumni-info">
+        <div class="alumni-name">[Alumni Name]</div>
+        <div class="alumni-degree">B.Sc. Computer Science · [University]</div>
+        <div class="alumni-now-label">Now</div>
+        <div class="alumni-now">Software Engineer, [Company]</div>
+      </div>
+    </div>
+
+    <div class="alumni-card sample">
+      <div class="alumni-year-badge">Class of 2023</div>
+      <div class="alumni-photo"><div class="alumni-initials">BB</div></div>
+      <div class="alumni-info">
+        <div class="alumni-name">[Alumni Name]</div>
+        <div class="alumni-degree">LL.B. Law · [University]</div>
+        <div class="alumni-now-label">Now</div>
+        <div class="alumni-now">Legal Aid Advocate, [Location]</div>
+      </div>
+    </div>
+
+    <div class="alumni-card sample">
+      <div class="alumni-year-badge">Class of 2022</div>
+      <div class="alumni-photo"><div class="alumni-initials">CC</div></div>
+      <div class="alumni-info">
+        <div class="alumni-name">[Alumni Name]</div>
+        <div class="alumni-degree">B.Sc. Nursing · [University]</div>
+        <div class="alumni-now-label">Now</div>
+        <div class="alumni-now">Registered Nurse, [Hospital]</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-banner">
+    <div class="cta-text">
+      <h3>Are You an Ema4Kids Alumnus?</h3>
+      <p>We'd love to feature your story and celebrate your journey. Reach out to share your update with our community.</p>
+    </div>
+    <a class="cta-btn" href="https://www.ema4kids.org/contact-us">Share Your Story</a>
+  </div>
+
+</div>
+</body>
+</html>
