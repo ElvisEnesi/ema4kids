@@ -1710,6 +1710,9 @@
             justify-content: center;
             flex-direction: column;
         }
+        .hero {
+            padding: 20px;
+        }
         /*service*/
         .stats-row { 
             grid-template-columns: 1fr 1fr; 
