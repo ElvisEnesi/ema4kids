@@ -1,0 +1,17 @@
+:root {
+      --navy: #1D4ED8;
+      --navy-light: #E4ECFC;
+      --green: #0F8A46;
+      --green-mid: #2FAF6D;
+      --green-light: #7ED9A5;
+      --green-pale: #E3F7EB;
+      --red: #E23B3B;
+      --red-mid: #F16B5C;
+      --red-light: #FBD3D3;
+      --red-pale: #FDEDEC;
+      --text: #1A1A18;
+      --muted: #5A5A58;
+      --bg: #F7F7F5;
+      --card: #FFFFFF;
+      --surface: #F1EFEB;
+    }

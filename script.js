@@ -70,7 +70,7 @@ function show_dash() {
     let openDash = document.querySelector("#openDash");
     let closeDash = document.querySelector("#closeDash");
     let aside = document.querySelector("aside");
-    openDash.style.display = "none";
+    // openDash.style.display = "none";
     closeDash.style.display = "flex";
     aside.style.left = "0px";
 };
@@ -80,7 +80,7 @@ function hide_dash() {
     let openDash = document.querySelector("#openDash");
     let closeDash = document.querySelector("#closeDash");
     let aside = document.querySelector("aside");
-    closeDash.style.display = "none";
+    // closeDash.style.display = "none";
     openDash.style.display = "flex";
     aside.style.left = "-270px"; // Change -250px to match your sidebar width
 };
