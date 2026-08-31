@@ -5,14 +5,14 @@ let hide = document.querySelector('.hide');
 let nav = document.querySelector('.nav');
 // 
 show.addEventListener("click", function reveal() {
-    show.style.display = "none";
-    hide.style.display = "flex";
-    nav.style.right = "0";
+    // show.style.display = "none";
+    // hide.style.display = "flex";
+    nav.style.left = "0";
 })
 hide.addEventListener("click", function close() {
-    show.style.display = "flex";
-    hide.style.display = "none";
-    nav.style.right = "-250px";
+    // show.style.display = "flex";
+    // hide.style.display = "none";
+    nav.style.left = "-250px";
 })
 
 // slide show
