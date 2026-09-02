@@ -110,7 +110,6 @@
         animation-timeline: view();
         /* Automatically staggers the scroll range by 5% per card */
         animation-range: entry calc(var(--i) * 5%) cover calc(30% + (var(--i) * 5%));
-        /* animation-range: entry 0% cover 30%; */
     }
     /* scroll animation */
     @keyframes scroll_fade {
@@ -128,9 +127,6 @@
         animation-timeline: view();
         /* Automatically staggers the scroll range by 5% per card */
         animation-range: entry calc(var(--i) * 5%) cover calc(30% + (var(--i) * 5%));
-        /* animation-range: entry 0% cover 20%; */
-        /* Delays the start of the scroll animation by 10% of the timeline per card */
-        /* animation-delay: calc(var(--i) * 10%); */
     }
     /* scroll animation */
     @keyframes scroll_right {
@@ -1789,22 +1785,7 @@
             text-decoration: none;
             margin-bottom: 1rem;
             transition: all 0.4s ease;
-            /* Animation setup */
-            /* animation: show_links linear;
-            animation-timeline: view(); */
-            /* Dynamically calculate time delay based on your database loop variable */
-            /* animation-range: entry calc(var(--i) * 5%); */
         }
-        /* @keyframes show_links {
-            from {
-                opacity: 0.4;
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        } */
         .header #side {
             display: flex;
             font-size: 40px;
@@ -1813,7 +1794,6 @@
             color: #3d3939;
         }
         .header #side.hide {
-            /* display: none; */
             margin-bottom: 10px;
         }
         .footer {

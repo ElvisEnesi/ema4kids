@@ -5,13 +5,9 @@ let hide = document.querySelector('.hide');
 let nav = document.querySelector('.nav');
 // 
 show.addEventListener("click", function reveal() {
-    // show.style.display = "none";
-    // hide.style.display = "flex";
     nav.style.left = "0";
 })
 hide.addEventListener("click", function close() {
-    // show.style.display = "flex";
-    // hide.style.display = "none";
     nav.style.left = "-250px";
 })
 
@@ -61,10 +57,6 @@ function revealPassword() {
     }
 }
 
-// let openDash = document.querySelector("#openDash");
-// let closeDash = document.querySelector("#closeDash");
-// let aside = document.querySelector("#aside");
-
 // Open the sidebar
 function show_dash() {
     let openDash = document.querySelector("#openDash");
@@ -82,5 +74,5 @@ function hide_dash() {
     let aside = document.querySelector("aside");
     // closeDash.style.display = "none";
     openDash.style.display = "flex";
-    aside.style.left = "-270px"; // Change -250px to match your sidebar width
+    aside.style.left = "-270px"; // Change -270px to match your sidebar width
 };
