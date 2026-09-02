@@ -286,6 +286,51 @@
     <a class="cta-btn" href="https://www.ema4kids.org/contact-us">Share Your Story</a>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <?php 
+$i = 0; // 1. Initialize the counter before the loop
+while ($item = mysqli_fetch_assoc($resultt)) : ?>
+    <?php if ($item['quantity'] !== 0) : ?>
+        2. Add your class and the inline style variable
+        <div class="item scroll_animation_slide_right" style="--i: <?php echo $i; ?>;">
+            <img src="<?= SITE_URL ?>images/products/<?= htmlspecialchars($item['avatar']) ?>" class="item_img">
+            <h2 class="item_name"><?= $item['title'] ?></h2>
+            <p class="item_price">$<?= htmlspecialchars($item['price']) ?></p>
+            <form action="<?= SITE_URL ?>accessible/cart_decision.php" method="post">
+                <?php if (isset($_SESSION['user_id'])) : ?>
+                    <input type="hidden" name="product_id" value="<?= htmlspecialchars($item['id']) ?>">
+                    <button class="btn1" type="submit" name="add_to_cart">Add to Cart</button>
+                <?php else : ?>
+                    <button class="btn1" type="submit" name="sign">Add to Cart</button>
+                <?php endif; ?>
+            </form>
+        </div>
+        <?php $i++; // 3. Increment the counter only when a card is actually rendered ?>
+    <?php endif; ?>
+<?php endwhile; ?>
+
+.scroll_animation_slide_right {
+  animation: scroll_right linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+  
+  /* Delays each consecutive card by 10% of its scroll entry timeline */
+  animation-delay: calc(var(--i) * 10%);
+} -->
+
 </div>
 </body>
 </html>
