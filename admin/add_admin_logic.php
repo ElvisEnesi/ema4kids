@@ -107,6 +107,14 @@
                 move_uploaded_file($avatar_tmp_name, $avatar_file_path);
                 // upload file to folder
                 move_uploaded_file($cv_tmp_name, $cv_file_path);
+                // insert into activity
+                $insert_activity = mysqli_prepare($conn, "INSERT INTO activity_log (uuid, activity) VALUES (?,?)");
+                // declare activity
+                $activity = "Added admin " . $firstname;
+                mysqli_stmt_bind_param($insert_activity, "ss", $_SESSION['uuid'], $activity);
+                mysqli_stmt_execute($insert_activity);
+                mysqli_stmt_close($insert_activity);
+                // redirect with message
                 $_SESSION['add_admin_success'] = "Admin successfully added!!";
                 header("location: " . site_url . "admin/admins.php");
                 exit();

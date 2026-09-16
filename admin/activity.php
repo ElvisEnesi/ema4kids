@@ -1,6 +1,7 @@
 <?php
     // include files
     require_once '../configuration/database.php';
+    require_once '../encryption/encryption.php';
     // define logged in user
     $logged_in_user = $_SESSION['uuid'];
     // select user from database
@@ -44,82 +45,32 @@
         <main>
             <div class="main_navigator">
                 <div class="apps" id="openDash" onclick="show_dash()"><ion-icon name="apps-outline"></ion-icon></div>
-                <div class="search">
-                    <form action="" method="post">
-                        <input type="search" placeholder="Type to search">
-                        <button type="submit"><ion-icon name="search-outline"></ion-icon></button>
-                    </form>
-                </div>
             </div>
-            <table>
-                <tr>
-                    <th>demo</th>
-                    <th>demo</th>
-                    <th>demo</th>
-                    <th>demo</th>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-                <tr>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                    <td>demo</td>
-                </tr>
-            </table>
-            <!-- <div class="display_table">Add data to display</div> -->
-            <!-- <div class="show_alert_success">
-                Profile edited successfully
-            </div>
-            <div class="show_alert_error">
-                Update failed
-            </div> -->
+            <?php
+                // select admin from database
+                $search_activity = mysqli_query($conn, "SELECT ac.uuid AS uuid, ac.activity AS activity, ac.date AS date, ad.uuid 
+                AS admin_uuid, ad.encrypted_email AS email FROM activity_log AS ac JOIN admin_tbl AS ad ON ac.uuid = ad.uuid 
+                ORDER BY ac.date DESC");
+                //
+                if (mysqli_num_rows($search_activity) > 0) :
+                ?>
+                <table>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                    </tr>
+                    <?php while ($activity = mysqli_fetch_assoc($search_activity)) : ?>
+                        <tr>
+                            <td><?= htmlspecialchars($activity['activity'], ENT_QUOTES, "UTF-8") ?></td>
+                            <td><?= decrypt(htmlspecialchars($activity['email'], ENT_QUOTES, "UTF-8")) ?></td>
+                            <td><?= htmlspecialchars($activity['date'], ENT_QUOTES, "UTF-8") ?></td>
+                        </tr>
+                    <?php endwhile ; ?>
+                </table>
+            <?php else : ?>
+                <div class="display_table">Add data to display</div>
+            <?php endif ; ?>
         </main>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>

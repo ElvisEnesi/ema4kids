@@ -4,22 +4,23 @@
     require_once '../encryption/encryption.php';
     if (isset($_POST['add_sr'])) {
         // declare variables
-        $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $middlename = filter_var($_POST['middlename'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? null;
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        $country = filter_var($_POST['country'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $state_of_origin = filter_var($_POST['state_of_origin'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $create_password = filter_var($_POST['create_password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $confirm_password = filter_var($_POST['confirm_password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $firstname = (string) $_POST['firstname'];
+        $lastname = (string) $_POST['lastname'];
+        $middlename = (string) $_POST['middlename'] ?? null;
+        $email = (string) $_POST['email'];
+        $country = (string) $_POST['country'];
+        $state_of_origin = (string) $_POST['state_of_origin'];
+        $create_password = (string) $_POST['create_password'];
+        $confirm_password = (string) $_POST['confirm_password'];
         $avatar = $_FILES['avatar'];
         $letter = $_FILES['letter'];
-        $date_of_birth = filter_var($_POST['date_of_birth']);
-        $active = filter_var($_POST['active'], FILTER_SANITIZE_NUMBER_INT);
+        $date_of_birth = $_POST['date_of_birth'];
+        $status = (string) $_POST['status'];
+        $degree = (string) $_POST['degree'];
 
         // validate inputs
-        if (!$firstname || !$lastname || !$email || !$country || !$state_of_origin ||
-            !$create_password || !$confirm_password || !$avatar['name'] || !$letter['name'] || !$active || !$date_of_birth)
+        if (!$firstname || !$lastname || !$email || !$country || !$state_of_origin || !$create_password || !$confirm_password 
+        || !$avatar['name'] || !$letter['name'] || !$status || !$date_of_birth || !$degree)
         {
             $_SESSION['add_sr'] = "Fill in all fields!";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -91,16 +92,22 @@
         } else {
             // insert into database
             $insert = mysqli_prepare($conn, "INSERT INTO sr_tbl (sr_uuid, sr_firstname, sr_lastname, sr_middlename, 
-            sr_encrypted_email, sr_country, sr_state, sr_date_of_birth, active, hashed_password, sr_hashed_email, sr_avatar,
-            letter) 
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            sr_encrypted_email, sr_country, degree, sr_state, sr_date_of_birth, status, hashed_password, sr_hashed_email, 
+            sr_avatar, letter) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             // bind parameters
-            mysqli_stmt_bind_param($insert, "ssssssssissss", $uuid, $firstname, $lastname, $middlename, 
-            $encrypted_email, $country, $state_of_origin, $date_of_birth, $active, $hashed_password,
+            mysqli_stmt_bind_param($insert, "ssssssssssssss", $uuid, $firstname, $lastname, $middlename, 
+            $encrypted_email, $country, $degree, $state_of_origin, $date_of_birth, $status, $hashed_password,
             $hashed_email, $avatar_name, $letter_name);
             // execute sql statement
             mysqli_stmt_execute($insert);
             if (mysqli_stmt_affected_rows($insert) > 0) {
+                // insert into activity
+                $insert_activity = mysqli_prepare($conn, "INSERT INTO activity_log (uuid, activity) VALUES (?,?)");
+                // declare activity
+                $activity = "Added scholarship recipient " . $firstname;
+                mysqli_stmt_bind_param($insert_activity, "ss", $_SESSION['uuid'], $activity);
+                mysqli_stmt_execute($insert_activity);
+                mysqli_stmt_close($insert_activity);
                 // upload image to folder
                 move_uploaded_file($avatar_tmp_name, $avatar_file_path);
                 // upload file to folder

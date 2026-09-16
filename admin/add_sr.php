@@ -43,6 +43,10 @@
                 <input type="email" id="email" name="email">
             </div>
             <div class="form-group">
+                <label for="degree">Degree</label>
+                <input type="text" id="degree" name="degree">
+            </div>
+            <div class="form-group">
                 <label for="country">Country</label>
                 <input type="text" id="country" name="country">
             </div>
@@ -59,10 +63,10 @@
                 <input type="password" id="confirm_password" name="confirm_password">
             </div>
             <div class="form-group">
-                <label for="role">Active</label>
-                <select name="active" id="role">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                <label for="role">Status</label>
+                <select name="status" id="role">
+                    <option value="active">Active</option>
+                    <option value="graduated">Graduated</option>
                 </select>
             </div>
             <div class="form-group">

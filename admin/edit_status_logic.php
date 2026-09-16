@@ -29,6 +29,13 @@
             mysqli_stmt_execute($update);
             // check if there was any sql effect
             if (mysqli_stmt_affected_rows($update) > 0) {
+                // insert into activity
+                $insert_activity = mysqli_prepare($conn, "INSERT INTO activity_log (uuid, activity) VALUES (?,?)");
+                // declare activity
+                $activity = "Edited request status to " . $status . " for " . $id;
+                mysqli_stmt_bind_param($insert_activity, "ss", $_SESSION['uuid'], $activity);
+                mysqli_stmt_execute($insert_activity);
+                mysqli_stmt_close($insert_activity);
                 // redirect with success message
                 $_SESSION['edit_status_success'] = "Status successfully edited";
                 header("location: " . site_url . "admin/requests.php");

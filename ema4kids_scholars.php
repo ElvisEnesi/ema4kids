@@ -48,19 +48,25 @@
         photo, name, degree earned, graduation year, and a "Now" field showing what the alumnus is doing today their career,
         community role, or further studies.
     </div>
-    <div class="alumni-grid">
-        <div class="alumni-card scroll_animation_fade" style="--i: 0;">
-            <div class="alumni-year-badge">Class of 2024</div>
-            <div class="alumni-photo">
-                <img src="<?= site_url ?>images/WhatsApp Image 2026-04-08 at 15.43.47 (1).jpeg" alt="" 
-                onclick="window.location.href='<?= site_url ?>light_page.php'">
-            </div>
-            <div class="alumni-info">
-                <div class="alumni-name">[Alumni Name]</div>
-                <div class="alumni-degree">B.Sc. Computer Science · [University]</div>
-            </div>
+    <?php
+        $select = mysqli_query($conn, "SELECT * FROM sr_tbl");
+        if (mysqli_num_rows($select) > 0) :
+    ?>
+        <div class="alumni-grid">
+            <?php while ($result = mysqli_fetch_assoc($select)) : ?>
+                <div class="alumni-card scroll_animation_fade" style="--i: 0;">
+                    <div class="alumni-photo">
+                        <img src="<?= site_url ?>images/sr/<?= htmlspecialchars($result['sr_avatar'], ENT_QUOTES, "UTF-8") ?>" alt="" 
+                        onclick="window.location.href='<?= site_url ?>light_page.php'">
+                    </div>
+                    <div class="alumni-info">
+                        <div class="alumni-name"><?= htmlspecialchars($result['sr_lastname'] . " " . $result['sr_firstname'] . " " . $result['sr_middlename'] ?? null, ENT_QUOTES, "UTF-8") ?></div>
+                        <div class="alumni-degree"><?= htmlspecialchars($result['degree'] ?? null, ENT_QUOTES, "UTF-8") ?></div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="cta-banner">
         <div class="cta-text">
         <h3>Are You an Ema4Kids Alumnus?</h3>

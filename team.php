@@ -105,18 +105,25 @@
     <div class="note_to_know">
         <strong>Ema4Kids team:</strong> 
     </div>
-    <div class="alumni-grid">
-        <div class="alumni-card scroll_animation_fade" style="--i: 0;">
-            <div class="alumni-photo">
-                <img src="<?= site_url ?>images/WhatsApp Image 2026-04-08 at 15.43.47 (1).jpeg" alt="" 
-                onclick="window.location.href='<?= site_url ?>team_light_page.php'">
-            </div>
-            <div class="alumni-info">
-                <div class="alumni-name">[Alumni Name]</div>
-                <div class="alumni-degree">Executive Director</div>
-            </div>
+    <?php
+        $select = mysqli_query($conn, "SELECT * FROM admin_tbl");
+        if (mysqli_num_rows($select) > 0) :
+    ?>
+        <div class="alumni-grid">
+            <?php while ($result = mysqli_fetch_assoc($select)) : ?>
+                <div class="alumni-card scroll_animation_fade" style="--i: 0;">
+                    <div class="alumni-photo">
+                        <img src="<?= site_url ?>images/admin/<?= htmlspecialchars($result['avatar'], ENT_QUOTES, "UTF-8") ?>" alt="" 
+                        onclick="window.location.href='<?= site_url ?>team_light_page.php'">
+                    </div>
+                    <div class="alumni-info">
+                        <div class="alumni-name"><?= htmlspecialchars($result['lastname'] . " " . $result['firstname'] . " " . $result['middlename'] ?? null, ENT_QUOTES, "UTF-8") ?></div>
+                        <div class="alumni-degree"><?= htmlspecialchars($result['title'], ENT_QUOTES, "UTF-8") ?></div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="footer" id="footer">
         <div class="col">
             <a href="gallery.html">Gallery</a>
