@@ -1,0 +1,280 @@
+<?php
+    // include files
+    require_once './configuration/database.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Ema4Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<?= site_url ?>css/style.css"/>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Ema4kids</div>
+        <div class="nav">
+            <div id="side" class="hide"><ion-icon name="close-outline"></ion-icon></div>
+            <a href="<?= site_url ?>index.php">Home</a>
+            <a href="<?= site_url ?>about.php">About</a>
+            <a href="<?= site_url ?>service.php">Our services</a>
+            <a href="<?= site_url ?>blog/blog.php">Blog</a>
+            <a href="<?= site_url ?>donate.php">Donate</a>
+            <a href="mailto:ema4kids@gmail.com">Contact us</a>
+            <!--Control login links-->
+            <?php if (isset($_SESSION['uuid'])) : ?>
+                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) : ?>
+                    <a href="<?= site_url ?>admin/dashboard.php">Dashboard</a>
+                <?php else : ?>
+                    <a href="<?= site_url ?>user/dashboard.php">Dashboard</a>
+                <?php endif; ?>
+            <?php else : ?>
+                <a href="<?= site_url ?>authentication/signin_navigate.php">sign in</a>
+            <?php endif; ?>
+        </div>
+        <div id="side" class="show"><ion-icon name="menu-outline"></ion-icon></div>
+    </div>
+    <div class="hero">
+        <div class="hero-tag">About Ema4Kids Legacy Foundation</div>
+        <!-- <div class="hero-acronym">
+            <div class="acronym-item">
+                <div class="acronym-letter">E</div>
+                <div class="acronym-phrase">Empower Youth Success</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="acronym-item">
+                <div class="acronym-letter">M</div>
+                <div class="acronym-phrase">Mentor for Change</div>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="acronym-item">
+                <div class="acronym-letter">A</div>
+                <div class="acronym-phrase">Access to Education</div>
+            </div>
+        </div> -->
+        <div class="mission-text">
+            Supporting orphans and vulnerable youth in poverty and conflict-afflicted communities through education scholarships, 
+            empowerment, and fortification against exploitation.
+        </div>
+    </div>
+    <div class="goal-banner scroll_animation_fade" style="--i: 0;">
+        <div class="goal-icon">★</div>
+        <div class="goal-text">
+            Our goal is to help young people become <strong>positive leaders of change</strong>, <strong>agents of peace</strong>, 
+            and <strong>exemplars of excellence</strong> in their communities.
+        </div>
+    </div>
+    <div class="pledge-card scroll_animation_fade" style="--i: 0;">
+        <div class="pledge-label">The Ema4Kids Pledge</div>
+        <div class="pledge-text">
+            "As an Ema4kids scholarship recipient and ambassador, I pledge to become a positive leader of 
+            change, an agent of peace, and an example of excellence in my community."
+        </div>
+    </div>
+    <div class="section-label">Core Values</div>
+    <div class="section-title">What we stand for</div>
+    <div class="values-grid">
+        <div class="value-card scroll_animation_fade" style="--i: 0;">
+            <div class="value-dot"></div>
+            <div class="value-name">Empowerment</div>
+            <div class="value-desc">
+                We believe in the boundless potential of youth and invest in them as the key to a brighter future.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 1;">
+            <div class="value-dot"></div>
+            <div class="value-name">Community</div>
+            <div class="value-desc">
+                Youth voices guide our work. We are committed to doing whatever it takes to help them thrive.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 2;">
+            <div class="value-dot"></div>
+            <div class="value-name">Empathy</div>
+            <div class="value-desc">
+                We seek to understand others' lived experiences especially those most different from our own.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 3;">
+            <div class="value-dot"></div>
+            <div class="value-name">Equity</div>
+            <div class="value-desc">
+                Every young person deserves equal access to opportunity, regardless of background.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 4;">
+            <div class="value-dot"></div>
+            <div class="value-name">Resilience</div>
+            <div class="value-desc">
+                We help build strength in youth to face adversity and emerge stronger.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 5;">
+            <div class="value-dot"></div>
+            <div class="value-name">Well-being</div>
+            <div class="value-desc">
+                We create safe spaces that uplift the social, emotional, and physical well-being of every young person.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 6;">
+            <div class="value-dot"></div>
+            <div class="value-name">Learning</div>
+            <div class="value-desc">
+                We embrace challenges as opportunities to grow and continuously evolve our service.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 7;">
+            <div class="value-dot"></div>
+            <div class="value-name">Respect</div>
+            <div class="value-desc">
+                We honor every person's worth with kindness and dignity, even in disagreement.
+            </div>
+        </div>
+        <div class="value-card scroll_animation_fade" style="--i: 8;">
+            <div class="value-dot"></div>
+            <div class="value-name">Teamwork</div>
+            <div class="value-desc">
+                We work together and align in purpose to shape youth into the leaders of tomorrow.
+            </div>
+        </div>
+    </div>
+    <div class="section-label">Guiding Principles</div>
+    <div class="section-title">How we lead</div>
+    <div class="principles-list">
+        <div class="principle-item scroll_animation_fade" style="--i: 0;">
+            <div class="principle-icon">◆</div>
+            <div>
+                <div class="principle-name">
+                    Leadership, Lead with a heart at peace
+                </div>
+                <div class="principle-desc">
+                    Authentic leadership means offering second chances, choosing empathy over judgment, 
+                    and guiding others with dignity. See people as people, not obstacles.
+                </div>
+            </div>
+        </div>
+        <div class="principle-item scroll_animation_fade" style="--i: 0;">
+            <div class="principle-icon">◆</div>
+            <div>
+                <div class="principle-name">
+                    Integrity, Match behavior with values
+                </div>
+                <div class="principle-desc">
+                    Live what you believe. Be sincere, honest, fair, peaceful, and charitable. Let your actions consistently 
+                    reflect your personal and organizational values.
+                </div>
+            </div>
+        </div>
+        <div class="principle-item scroll_animation_fade" style="--i: 0;">
+            <div class="principle-icon">◆</div>
+            <div>
+                <div class="principle-name">
+                    Ownership, Take responsibility for your actions
+                </div>
+                <div class="principle-desc">
+                    Own your choices and their outcomes. Avoid blaming, excusing, or deflecting. Growth begins with accepting 
+                    your role and learning from it.
+                </div>
+            </div>
+        </div>
+        <div class="principle-item scroll_animation_fade" style="--i: 0;">
+            <div class="principle-icon">◆</div>
+            <div>
+                <div class="principle-name">
+                    Failure as fuel, Learn and grow forward
+                </div>
+                <div class="principle-desc">
+                    Success demands persistence and humility. When you stumble, stand up, reflect, and move forward stronger. 
+                    The only real failure is giving up.
+                </div>
+            </div>
+        </div>
+        <div class="principle-item scroll_animation_fade" style="--i: 0;">
+            <div class="principle-icon">◆</div>
+            <div>
+                <div class="principle-name">
+                    Honoring dignity, Recognize inherent value in every person
+                </div>
+                <div class="principle-desc">
+                    Respect each individual's identity, background, and humanity. Create space for others to be seen, heard, 
+                    and respected without judgment or marginalization.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-label">Where We Work</div>
+    <div class="section-title">Our reach across the globe</div>
+    <div class="geography-section scroll_animation_fade" style="--i: 0;">
+        <div class="geo-block">
+            <div class="geo-title">Countries</div>
+            <span class="country-tag">Nigeria</span>
+            <span class="country-tag">Benin Republic</span>
+            <span class="country-tag">India</span>
+            <span class="country-tag">West Bank</span>
+            <span class="country-tag">United States</span>
+        </div>
+        <div class="geo-block">
+            <div class="geo-title">Nigerian States</div>
+            <span class="country-tag">Abia</span>
+            <span class="country-tag">Bauchi</span>
+            <span class="country-tag">Gombe</span>
+            <span class="country-tag">Imo</span>
+            <span class="country-tag">Kaduna</span>
+            <span class="country-tag">Kano</span>
+            <span class="country-tag">Katsina</span>
+            <span class="country-tag">Kwara</span>
+            <span class="country-tag">Kogi</span>
+            <span class="country-tag">Nasarawa</span>
+            <span class="country-tag">Plateau</span>
+            <span class="country-tag">Taraba</span>
+        </div>
+    </div>
+    <div class="section-label">Who We Serve</div>
+    <div class="section-title">Youth we support</div>
+    <div class="who-card scroll_animation_fade" style="--i: 0;">
+        <div>
+        <div class="who-age">15-29</div>
+        <div class="who-age-label">Years of age</div>
+        </div>
+        <div class="who-divider"></div>
+        <div class="who-text">
+            Ema4Kids supports youth regardless of ethnic group, religion, gender, or nationality who aspire to pursue 
+            education beyond secondary school and are often the first in their families to attend tertiary-level education.
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <div class="col">
+            <a href="gallery.html">Gallery</a>
+            <a href="team.html">Meet our team</a>
+            <a href="ema4kids_scholars.html">Our scholarship recipients</a>
+            <a href="policy.html">Privacy Policy</a>
+            <a href="t&c.html">Terms & conditions</a>
+            <a href="partner.html">Ema4kids partners</a>
+        </div>
+        <div class="col">
+            <h3>Contact us @</h3>
+            <a href="mailto:ema4kids@gmail.com">ema4kids@gmail.com</a>
+        </div>
+        <div class="col">
+            <h3>Follow us @</h3>
+            <div class="socials">
+                <a target="_blank" href="https://www.facebook.com/share/14rBucJsE7Z/"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a target="_blank" href="https://www.instagram.com/ema4kids_?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="><ion-icon name="logo-instagram"></ion-icon></a>
+                <a target="_blank" href="https://www.threads.com/@ema4kids_"><ion-icon name="logo-threads"></ion-icon></a>
+            </div>
+        </div>
+        <div class="col">
+            Ema4kids Legacy Foundation is a 501(c)(3) non-profit in the United States operating internationally. 
+            Registered in the United States. EIN: 92-2485192<br>Public Charity Status: 170(b)(1)(A)(vi)
+        </div>
+    </div>
+    <div class="copywrite">
+        Copyright 2026 Ema4kids Legacy Foundation. All Rights Reserved
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

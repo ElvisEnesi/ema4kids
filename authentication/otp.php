@@ -1,0 +1,37 @@
+<?php
+    // include files
+    require_once '../configuration/database.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<?= site_url ?>css/style.css"/>
+</head>
+<body>
+    <div class="welcome_note">
+        <p>Insert OTP sent to your email!</p>
+    </div>
+    <div class="success">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aperiam laboriosam cumque a, saepe sapiente ab.
+    </div>
+    <div class="error">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aperiam laboriosam cumque a, saepe sapiente ab.
+    </div>
+    <div class="form">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="number">OTP</label>
+                <input type="number" id="number" name="otp">
+            </div>
+            <button type="submit">Proceed</button>
+        </form>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="<?= site_url ?>javascript/script.js"></script>
+</body>
+</html>
