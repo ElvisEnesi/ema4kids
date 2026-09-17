@@ -90,7 +90,7 @@
                                     echo "<td>". decrypt(htmlspecialchars($admin['encrypted_email'], ENT_QUOTES, "UTF-8")). "</td>";
                                     echo "<td>" . htmlspecialchars($admin['country'], ENT_QUOTES, "UTF-8") . "</td>";
                                     echo "<td>" . htmlspecialchars($admin['state'], ENT_QUOTES, "UTF-8") . "</td>";
-                                    echo '<td><a download="" href="<?= site_url ?>documents/cv/' . htmlspecialchars($admin['cv'], ENT_QUOTES, "UTF-8") . '">download</a></td>';
+                                    echo '<td><a href="' . site_url . 'documents/cv/' . htmlspecialchars($admin['cv'], ENT_QUOTES, "UTF-8") . '" download="">download</a></td>';
                                     echo '<td><a href="edit_admin.php?id=' . htmlspecialchars($admin['uuid'], ENT_QUOTES, 'UTF-8') . '">Click</a></td>';
                                     echo '<td><a href="delete_admin.php?id=' . htmlspecialchars($admin['uuid'], ENT_QUOTES, 'UTF-8') . '" class="danger">Click</a></td>';
                                 echo "</tr>";

@@ -100,6 +100,7 @@
             <?php else : ?>
                 <div class="display_table">Add data to display</div>
             <?php endif ; ?>
+            <!--add admin message-->
             <?php if (isset($_SESSION['add_admin_success'])) : ?>
                 <div class="show_alert_success">
                     <?php echo htmlspecialchars($_SESSION['add_admin_success'], ENT_QUOTES, "UTF-8") ?>
@@ -112,6 +113,32 @@
                 </div>
             <?php endif ; ?>
             <?php unset($_SESSION['add_admin']) ?>
+            <!--edit admin message-->
+            <?php if (isset($_SESSION['edit_admin_success'])) : ?>
+                <div class="show_alert_success">
+                    <?php echo htmlspecialchars($_SESSION['edit_admin_success'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['edit_admin_success']) ?>
+            <?php if (isset($_SESSION['edit_admin'])) : ?>
+                <div class="show_alert_error">
+                    <?php echo htmlspecialchars($_SESSION['edit_admin'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['edit_admin']) ?>
+            <!--delete admin message-->
+            <?php if (isset($_SESSION['delete_admin_success'])) : ?>
+                <div class="show_alert_success">
+                    <?php echo htmlspecialchars($_SESSION['delete_admin_success'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['delete_admin_success']) ?>
+            <?php if (isset($_SESSION['delete_admin'])) : ?>
+                <div class="show_alert_error">
+                    <?php echo htmlspecialchars($_SESSION['delete_admin'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['delete_admin']) ?>
         </main>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>

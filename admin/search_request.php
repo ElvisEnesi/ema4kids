@@ -131,11 +131,11 @@
                     $search = trim((string) $_GET['search']);
                     // select admin from database
                     $select_request = mysqli_prepare($conn, "SELECT * FROM request_tbl WHERE firstname LIKE ? OR 
-                    lastname LIKE ? OR middlename LIKE ? ORDER BY date_created DESC");
+                    lastname LIKE ? OR middlename LIKE ? OR description LIKE ? ORDER BY date_created DESC");
                     // declare search variable
                     $search_like = "%" . $search . "%";
                     // bind parameters 
-                    mysqli_stmt_bind_param($select_request, "sss", $search_like, $search_like, $search_like);
+                    mysqli_stmt_bind_param($select_request, "ssss", $search_like, $search_like, $search_like, $search_like);
                     // execute statement
                     mysqli_stmt_execute($select_request);
                     // get results

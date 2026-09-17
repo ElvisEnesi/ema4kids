@@ -118,6 +118,7 @@
                         <th>Email</th>
                         <th>Country</th>
                         <th>State</th>
+                        <th>degree</th>
                         <th>status</th>
                         <th>Letter</th>
                         <th>Edit</th>
@@ -131,17 +132,18 @@
                             <td><?= decrypt(htmlspecialchars($sr['sr_encrypted_email'], ENT_QUOTES, "UTF-8")) ?></td>
                             <td><?= htmlspecialchars($sr['sr_country'], ENT_QUOTES, "UTF-8") ?></td>
                             <td><?= htmlspecialchars($sr['sr_state'], ENT_QUOTES, "UTF-8") ?></td>
+                            <td><?= htmlspecialchars($sr['degree'], ENT_QUOTES, "UTF-8") ?></td>
                             <td><?= htmlspecialchars($sr['status'], ENT_QUOTES, "UTF-8") ?></td>
                             <td>
                                 <a href="<?= site_url ?>documents/letter/<?= htmlspecialchars($sr['letter'], ENT_QUOTES, "UTF-8") ?>" download="">download</a>
                             </td>
                             <td>
-                                <a href="edit_sr.php?id=<?= htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, "UTF-8") ?>">
+                                <a href="edit_sr.php?uuid=<?= htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, "UTF-8") ?>">
                                     Click
                                 </a>
                             </td>
                             <td>
-                                <a href="delete_sr.php?id=<?= htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, "UTF-8") ?>" class="danger">
+                                <a href="delete_sr.php?uuid=<?= htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, "UTF-8") ?>" class="danger">
                                     Click
                                 </a>
                             </td>
@@ -163,6 +165,32 @@
                 </div>
             <?php endif ; ?>
             <?php unset($_SESSION['add_sr']) ?>
+            <!--edit sr message-->
+            <?php if (isset($_SESSION['edit_sr_success'])) : ?>
+                <div class="show_alert_success">
+                    <?php echo htmlspecialchars($_SESSION['edit_sr_success'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['edit_sr_success']) ?>
+            <?php if (isset($_SESSION['edit_sr'])) : ?>
+                <div class="show_alert_error">
+                    <?php echo htmlspecialchars($_SESSION['edit_sr'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['edit_sr']) ?>
+            <!--delete sr message-->
+            <?php if (isset($_SESSION['delete_sr_success'])) : ?>
+                <div class="show_alert_success">
+                    <?php echo htmlspecialchars($_SESSION['delete_sr_success'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['delete_sr_success']) ?>
+            <?php if (isset($_SESSION['delete_sr'])) : ?>
+                <div class="show_alert_error">
+                    <?php echo htmlspecialchars($_SESSION['delete_sr'], ENT_QUOTES, "UTF-8") ?>
+                </div>
+            <?php endif ; ?>
+            <?php unset($_SESSION['delete_sr']) ?>
         </main>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>

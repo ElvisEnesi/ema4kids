@@ -141,7 +141,7 @@
                                     echo "<td>" . htmlspecialchars($sr['sr_country'], ENT_QUOTES, "UTF-8") . "</td>";
                                     echo "<td>" . htmlspecialchars($sr['sr_state'], ENT_QUOTES, "UTF-8") . "</td>";
                                     echo "<td>" . htmlspecialchars($sr['status'], ENT_QUOTES, "UTF-8") . "</td>";
-                                    echo '<td><a download="" href="<?= site_url ?>documents/letter/' . htmlspecialchars($sr['letter'], ENT_QUOTES, "UTF-8") . '">download</a></td>';
+                                    echo '<td><a href="' . site_url . 'documents/letter/' . htmlspecialchars($sr['letter'], ENT_QUOTES, "UTF-8") . '" download="">download</a></td>';
                                     echo '<td><a href="edit_admin.php?id=' . htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, 'UTF-8') . '">Click</a></td>';
                                     echo '<td><a href="delete_admin.php?id=' . htmlspecialchars($sr['sr_uuid'], ENT_QUOTES, 'UTF-8') . '" class="danger">Click</a></td>';
                                 echo "</tr>";

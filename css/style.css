@@ -177,6 +177,9 @@
         background-color: #E4ECFC;
         margin-bottom: 10px;
     }
+    .form form.delete {
+        background: #FCE8E6;
+    }
     .form form .form-group {
         display: flex;
         flex-direction: column;
@@ -213,6 +216,20 @@
     }
     .form form button:hover {
         background-color: #1D9E75;
+        transform: scale(1.01);
+    }
+    .form form.delete button {
+        padding: 10px;
+        background-color: #A51D24;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .form form.delete button:hover {
         transform: scale(1.01);
     }
     .hero {
