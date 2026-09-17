@@ -5,7 +5,7 @@
     // check for logged in user
     if (!isset($_SESSION['uuid'])) {
         // log in user's ip address to activity log
-        $activity = mysqli_prepare($connection, "INSERT INTO activity_log (ip_address, type) VALUES(?,?)");
+        $activity = mysqli_prepare($conn, "INSERT INTO activity_log (ip_address, type) VALUES(?,?)");
         // declare login status
         $type = "User not logged in!!";
         // bind parameters
