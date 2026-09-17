@@ -88,6 +88,35 @@
             <img src="<?= site_url ?>images/Shirt.jpg" style="width:100%">
         </div>
     </div>
+    <div class="footer scroll_animation_fade" id="footer" style="--i: 0;">
+        <div class="col">
+            <a href="<?= site_url ?>gallery.php">Gallery</a>
+            <a href="<?= site_url ?>team.php">Meet our team</a>
+            <a href="<?= site_url ?>ema4kids_scholars.php">Our scholarship recipients</a>
+            <a href="" onclick="alert('URL unavailable')">Privacy Policy</a>
+            <a href="" onclick="alert('URL unavailable')">Terms & conditions</a>
+            <a href="<?= site_url ?>partner.php">Ema4kids partners</a>
+        </div>
+        <div class="col">
+            <h3>Contact us @</h3>
+            <a href="mailto:ema4kids@gmail.com">ema4kids@gmail.com</a>
+        </div>
+        <div class="col">
+            <h3>Follow us @</h3>
+            <div class="socials">
+                <a target="_blank" href="https://www.facebook.com/share/14rBucJsE7Z/"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a target="_blank" href="https://www.instagram.com/ema4kids_?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="><ion-icon name="logo-instagram"></ion-icon></a>
+                <a target="_blank" href="https://www.threads.com/@ema4kids_"><ion-icon name="logo-threads"></ion-icon></a>
+            </div>
+        </div>
+        <div class="col">
+            Ema4kids Legacy Foundation is a 501(c)(3) non-profit in the United States operating internationally. 
+            Registered in the United States. EIN: 92-2485192<br>Public Charity Status: 170(b)(1)(A)(vi)
+        </div>
+    </div>
+    <div class="copywrite">
+        Copyright <?= date("Y"); ?> Ema4kids Legacy Foundation. All Rights Reserved
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
     <script src="<?= site_url ?>javascript/script.js"></script>

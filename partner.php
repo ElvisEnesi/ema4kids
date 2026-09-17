@@ -57,14 +57,14 @@
             <h3>Plateau State Polytechnic</h3>
         </div>
     </div>
-    <div class="footer" id="footer">
+    <div class="footer scroll_animation_fade" id="footer" style="--i: 0;">
         <div class="col">
-            <a href="gallery.html">Gallery</a>
-            <a href="team.html">Meet our team</a>
-            <a href="ema4kids_scholars.html">Our scholarship recipients</a>
-            <a href="policy.html">Privacy Policy</a>
-            <a href="t&c.html">Terms & conditions</a>
-            <a href="partner.html">Ema4kids partners</a>
+            <a href="<?= site_url ?>gallery.php">Gallery</a>
+            <a href="<?= site_url ?>team.php">Meet our team</a>
+            <a href="<?= site_url ?>ema4kids_scholars.php">Our scholarship recipients</a>
+            <a href="" onclick="alert('URL unavailable')">Privacy Policy</a>
+            <a href="" onclick="alert('URL unavailable')">Terms & conditions</a>
+            <a href="<?= site_url ?>partner.php">Ema4kids partners</a>
         </div>
         <div class="col">
             <h3>Contact us @</h3>
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="copywrite">
-        Copyright 2026 Ema4kids Legacy Foundation. All Rights Reserved
+        Copyright <?= date("Y"); ?> Ema4kids Legacy Foundation. All Rights Reserved
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>

@@ -62,14 +62,14 @@
             <button type="submit" name="donate">Donate</button>
         </form>
     </div>
-    <div class="footer" id="footer">
+    <div class="footer scroll_animation_fade" id="footer" style="--i: 0;">
         <div class="col">
             <a href="<?= site_url ?>gallery.php">Gallery</a>
             <a href="<?= site_url ?>team.php">Meet our team</a>
             <a href="<?= site_url ?>ema4kids_scholars.php">Our scholarship recipients</a>
-            <a href="<?= site_url ?>policy.php">Privacy Policy</a>
-            <a href="<?= site_url ?>terms.php">Terms & conditions</a>
-            <a href="<?= site_url ?>partners.php">Ema4kids partners</a>
+            <a href="" onclick="alert('URL unavailable')">Privacy Policy</a>
+            <a href="" onclick="alert('URL unavailable')">Terms & conditions</a>
+            <a href="<?= site_url ?>partner.php">Ema4kids partners</a>
         </div>
         <div class="col">
             <h3>Contact us @</h3>
@@ -89,7 +89,7 @@
         </div>
     </div>
     <div class="copywrite">
-        Copyright 2026 Ema4kids Legacy Foundation. All Rights Reserved
+        Copyright <?= date("Y"); ?> Ema4kids Legacy Foundation. All Rights Reserved
     </div>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
