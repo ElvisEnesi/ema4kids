@@ -120,6 +120,8 @@
                 header("location: " . site_url . "admin/sr.php");
                 exit();
             }
+            mysqli_stmt_free_result($insert);
+            mysqli_stmt_close($insert);
         }
     } else {
         header("location: " . site_url . "admin/add_sr.php");

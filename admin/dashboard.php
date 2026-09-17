@@ -86,9 +86,9 @@
                 //bind parameters
                 mysqli_stmt_bind_param($select_activity, "s", $logged_in_user);
                 mysqli_stmt_execute($select_activity);
-                $select_activity = mysqli_stmt_get_result($select_activity);
+                $select_activity_result = mysqli_stmt_get_result($select_activity);
                 //
-                if (mysqli_num_rows($select_activity) > 0) :
+                if (mysqli_num_rows($select_activity_result) > 0) :
                 ?>
                 <table>
                     <tr>
@@ -96,7 +96,7 @@
                         <th>Email</th>
                         <th>Date</th>
                     </tr>
-                    <?php while ($activity = mysqli_fetch_assoc($select_activity)) : ?>
+                    <?php while ($activity = mysqli_fetch_assoc($select_activity_result)) : ?>
                         <tr>
                             <td><?= htmlspecialchars($activity['activity'], ENT_QUOTES, "UTF-8") ?></td>
                             <td><?= decrypt(htmlspecialchars($activity['email'], ENT_QUOTES, "UTF-8")) ?></td>
@@ -107,8 +107,10 @@
             <?php else : ?>
                 <div class="display_table">Add data to display</div>
             <?php endif ; ?>
+            <?php mysqli_stmt_free_result($select_activity); mysqli_stmt_close($select_activity); ?>
         </main>
     </div>
+    <?php mysqli_stmt_free_result($user_select); mysqli_stmt_close($user_select); ?>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
     <script src="<?= site_url ?>javascript/script.js"></script>
